@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Dto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -13,13 +14,17 @@ namespace API.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
+            Class1 cls = new Class1();
+            cls.AName = "xxxxxxxxx";
+            cls.Sax = "sssssssss";
+            string ss = cls.ConsoleEntity("ana");
 
 
             Logger.Critical("ValuesController", "ValuesController__err");
 
             ExportCar c = new ExportCar();
             c.Load();
-            return new string[] { "value1", "value2" };
+            return new string[] { ss, "value2" };
         }
 
         // GET api/values/5

@@ -7,6 +7,8 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\" />
+    <Folder Include="Template\" />
+    <Folder Include="Report\" />
   </ItemGroup>
 
   <ItemGroup>

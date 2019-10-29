@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace API.Dto
 {
-    public static class ModelExtenstion
+    public static class BaseModelExtenstion
     {
         public static string ConsoleEntity<TEntity>(this TEntity tEntity,string name) where TEntity : BaseModel
         {
             Type type = tEntity.GetType();
             PropertyInfo[] propInfos = type.GetProperties();
+            string msg = "";
             foreach (var prop in propInfos)
             {
                 string parameterName = prop.Name;
@@ -20,8 +21,14 @@ namespace API.Dto
                     DisplayNameAttribute attribute = (DisplayNameAttribute)prop.GetCustomAttribute(typeof(DisplayNameAttribute), false);
                     parameterName = attribute.Name == "" ? prop.Name : attribute.Name;
                 }
-                Console.WriteLine($"{parameterName}:{prop.GetValue(tEntity)}");
+                if (parameterName == name)
+                {
+                    msg += parameterName +":"+ prop.GetValue(tEntity);
+                    break;
+                }
             }
+
+            return msg;
         }
     }
 }
