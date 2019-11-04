@@ -1,3 +1,5 @@
 /API/file_logs
 /API/bin
 /API/obj
+/API/AppSettings.cs
+/API/appsettings.json

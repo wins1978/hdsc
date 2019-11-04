@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Db;
+using API.Utils;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.Json;
 
 namespace API.Controllers
 {
@@ -25,10 +29,11 @@ namespace API.Controllers
         [HttpPost("add")]
         public JsonResult Add()
         {
+            var sett = ConfigServices.Configuration.GetSection("AppSettings").Get<AppSettings>();
 
             ResponseResult result = new ResponseResult();
             result.Code = 0;
-            result.Data = Constants.SUCCESS;
+            result.Data = sett.DbSetting.Host;
             return Json(result);  
         }
     }
