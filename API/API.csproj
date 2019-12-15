@@ -14,7 +14,7 @@
   <ItemGroup>
     <PackageReference Include="AspNetCore.FileLog" Version="2.2.0.4" />
     <PackageReference Include="DotNetCore.NPOI" Version="1.2.2" />
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
     <PackageReference Include="MySql.Data" Version="8.0.18" />
     <PackageReference Include="sqlSugarCore" Version="5.0.0.10" />
   </ItemGroup>
